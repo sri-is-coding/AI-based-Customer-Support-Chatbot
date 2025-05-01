@@ -1,3 +1,6 @@
+# DIA cw Chatbot Srivarshini Selvaraj 20512874
+# chatbotbank.py
+
 !pip install -q bitsandbytes transformers accelerate
 
 from transformers import AutoTokenizer, AutoModelForCausalLM, BitsAndBytesConfig
