@@ -23,7 +23,6 @@ def format_example(example):
     return {
         "text": f"### Instruction:\n{example['instruction']}\n\n### Response:\n{example['output']}"
     }
-
 dataset = dataset.map(format_example)
 
 from huggingface_hub import login
@@ -89,6 +88,10 @@ trainer.train()
 model.save_pretrained("/content/drive/MyDrive/zephyr-finetuned-bankbot")
 tokenizer.save_pretrained("/content/drive/MyDrive/zephyr-finetuned-bankbot")
 model.save_pretrained("/content/drive/MyDrive/zephyr-bankbot-lora", safe_serialization=True)
+model.save_pretrained(adapter_path, safe_serialization=True)
+
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
+!cp -r ./zephyr-finetuned-bankbot /content/drive/MyDrive/
 
 from peft import PeftModel
 base_model = AutoModelForCausalLM.from_pretrained(model_name, trust_remote_code=True) # loading the base model
