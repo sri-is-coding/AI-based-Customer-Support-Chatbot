@@ -11,19 +11,17 @@ This project presents a fine-tuned, conversational AI-based chatbot designed for
 - Trained on a curated set of domain-specific FAQs and user queries compiled into a dataset
 - Handles frustrated or emotionally charged inputs with empathy and answers dynamically
 
-## Project Structure
-
-
-
 ## How to Run
 
 1. **Setup Google Colab or local environment with GPU**
 2. **Install dependencies:**
-3. **Run the codes:**
+3. **Run the codes in order:**
   python inferencebot.py
   python chatbotbank.py
 
 # Requirements
+
+Google Colab Pro recommended for GPU access
 
 Python 3.8+
 
@@ -32,29 +30,3 @@ PyTorch with CUDA support (if using GPU)
 Hugging Face Transformers
 
 PEFT (Parameter-Efficient Fine-Tuning)
-
-Google Colab Pro recommended for GPU access
-
-# Training Notes
-
-Base model: HuggingFaceH4/zephyr-7b-beta
-
-Fine-tuned using LoRA (r=8, α=16)
-
-Token length: 512 max
-
-Batch size: 1, 3 epochs, 4 gradient accumulation steps
-
-📎 Credits
-Model: Zephyr-7B-Beta
-
-Dataset: Custom bank queries compiled by Sri
-
-Frameworks: Hugging Face Transformers, PEFT, BitsandBytes
-
-📬 Future Work
-Integrate sentiment classifier for tone-aware responses
-
-Improve long-term memory handling
-
-Deploy on a web frontend
