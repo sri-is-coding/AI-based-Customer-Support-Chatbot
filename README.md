@@ -16,7 +16,7 @@ This project presents a fine-tuned, conversational AI-based chatbot designed for
 1. **Setup Google Colab or local environment with GPU**
 2. **Install dependencies:**
 3. **Run the codes in order:**
-  python inferencebot.py
+  python trainingbot.py
   python chatbotbank.py
 
 # Requirements
