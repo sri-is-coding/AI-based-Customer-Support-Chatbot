@@ -11,6 +11,7 @@ This project presents a fine-tuned, conversational AI-based chatbot designed for
   python trainingbot.py
   python chatbotbank.py
 4. If running it like stated in number 3 does not work, run the numbered files in order (01 to 06).
+5. When asked choose files to upload, select given bank dataset called sris_bank_qa.jsonl 
 
 
 ## Features of this Chatbot
