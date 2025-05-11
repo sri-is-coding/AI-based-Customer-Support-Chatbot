@@ -10,7 +10,7 @@ This project presents a fine-tuned, conversational AI-based chatbot designed for
 3. **Run the codes in order:**
   python trainingbot.py
   python chatbotbank.py
-4. If running it like that doesnt work, run these files in order:
+4. If running it like stated in number 3 does not work, run the numbered files in order (01 to 06).
 
 
 ## Features of this Chatbot
