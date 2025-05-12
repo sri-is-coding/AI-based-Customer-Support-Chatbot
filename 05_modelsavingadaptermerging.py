@@ -1,35 +1,30 @@
 # Saving model and LoRA adapter
-
-model.save\_pretrained("/content/drive/MyDrive/zephyr-finetuned-bankbot")
-tokenizer.save\_pretrained("/content/drive/MyDrive/zephyr-finetuned-bankbot")
-adapter\_path = "/content/drive/MyDrive/zephyr-bankbot-lora"
-model.save\_pretrained(adapter\_path, safe\_serialization=True)
+model.save_pretrained("/content/drive/MyDrive/zephyr-finetuned-bankbot")
+tokenizer.save_pretrained("/content/drive/MyDrive/zephyr-finetuned-bankbot")
+adapter_path = "/content/drive/MyDrive/zephyr-bankbot-lora"
+model.save_pretrained(adapter_path, safe_serialization=True)
 
 import os
-os.environ\["PYTORCH\_CUDA\_ALLOC\_CONF"] = "expandable\_segments\:True"
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
 from peft import PeftModel
 from transformers import AutoModelForCausalLM
 
 # loading the base model
-
-base\_model = AutoModelForCausalLM.from\_pretrained(
-"HuggingFaceH4/zephyr-7b-beta",
-trust\_remote\_code=True
+base_model = AutoModelForCausalLM.from_pretrained(
+    "HuggingFaceH4/zephyr-7b-beta",
+    trust_remote_code=True
 )
 
 # loading the LoRA adapter onto the base model
-
-lora\_model = PeftModel.from\_pretrained(
-base\_model,
-"/content/drive/MyDrive/zephyr-finetuned-bankbot"
+lora_model = PeftModel.from_pretrained(
+    base_model,
+    "/content/drive/MyDrive/zephyr-finetuned-bankbot"
 )
 
 # merging the LoRA into the base model
-
-merged\_model = lora\_model.merge\_and\_unload()
+merged_model = lora_model.merge_and_unload()
 
 # saving the merged full model
-
-merged\_model.save\_pretrained("/content/drive/MyDrive/zephyr-finetuned-FULLMODEL")
-tokenizer.save\_pretrained("/content/drive/MyDrive/zephyr-finetuned-FULLMODEL")
+merged_model.save_pretrained("/content/drive/MyDrive/zephyr-finetuned-FULLMODEL")
+tokenizer.save_pretrained("/content/drive/MyDrive/zephyr-finetuned-FULLMODEL")
